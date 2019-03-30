@@ -1,0 +1,132 @@
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search Results">
+  </mat-form-field>
+        <mat-table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>YR</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.product_title}} </mat-cell>
+            </ng-container>
+
+       <!----    <ng-container matColumnDef="CLS">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Grade</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.CLS}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="ROLLNO">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Roll#</mat-header-cell>
+                <mat-cell *matCellDef="let row" class="mycolor2"> {{row.ROLLNO }} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="STD_NM">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.STD_NM }} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="FATH_NM">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>S/O</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.FATH_NM }} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="PERCENT">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>%</mat-header-cell>
+                <mat-cell *matCellDef="let row" class="mycolor"> {{row.PERCENT }} </mat-cell>
+            </ng-container>-->
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <mat-paginator #paginator
+               
+                [pageIndex]="0"
+                [pageSize]="2"
+                [pageSizeOptions]="[2, 10, 25, 100]">
+        </mat-paginator>
+
+
+
+
+
+
+
+<!----<div class="course">
+<div class="spinner-container" *ngIf="dataSource.loading$ | async">
+  <mat-spinner></mat-spinner>
+</div>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="product_title">
+      <th mat-header-cell *matHeaderCellDef>Product Title</th>
+      <td mat-cell *matCellDef="let PoEntryCustomerTable">{{PoEntryCustomerTable.product_title}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>Description</th>
+      <td mat-cell *matCellDef="let PoEntryCustomerTable">{{PoEntryCustomerTable.description}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="model">
+      <th mat-header-cell *matHeaderCellDef>Model</th>
+      <td mat-cell *matCellDef="let PoEntryCustomerTable">{{PoEntryCustomerTable.model}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="brand">
+      <th mat-header-cell *matHeaderCellDef>Brand</th>
+      <td mat-cell *matCellDef="let PoEntryCustomerTable">{{PoEntryCustomerTable.brand}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="product_code">
+      <th mat-header-cell *matHeaderCellDef>product_code</th>
+      <td mat-cell *matCellDef="let PoEntryCustomerTable">{{PoEntryCustomerTable.product_code}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="part_number">
+      <th mat-header-cell *matHeaderCellDef>part_number</th>
+      <td mat-cell *matCellDef="let PoEntryCustomerTable">{{PoEntryCustomerTable.part_number}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="pack_size">
+      <th mat-header-cell *matHeaderCellDef>pack_size</th>
+      <td mat-cell *matCellDef="let PoEntryCustomerTable">{{PoEntryCustomerTable.pack_size}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="moq">
+      <th mat-header-cell *matHeaderCellDef>moq</th>
+      <td mat-cell *matCellDef="let PoEntryCustomerTable">{{PoEntryCustomerTable.moq}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="hsn_code">
+      <th mat-header-cell *matHeaderCellDef>hsn_code</th>
+      <td mat-cell *matCellDef="let PoEntryCustomerTable">{{PoEntryCustomerTable.hsn_code}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="gst">
+      <th mat-header-cell *matHeaderCellDef>gst</th>
+        <td mat-cell *matCellDef="let PoEntryCustomerTable">{{PoEntryCustomerTable.gst}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef>quantity</th>
+        <td mat-cell *matCellDef="let PoEntryCustomerTable">{{PoEntryCustomerTable.quantity}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="uom">
+      <th mat-header-cell *matHeaderCellDef>uom</th>
+      <td mat-cell *matCellDef="let PoEntryCustomerTable">{{PoEntryCustomerTable.uom}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="unit_price">
+      <th mat-header-cell *matHeaderCellDef>unit_price</th>
+        <td mat-cell *matCellDef="let PoEntryCustomerTable">{{PoEntryCustomerTable.unit_price}}</td>
+    </ng-container>
+    <ng-container matColumnDef="lead_time">
+      <th mat-header-cell *matHeaderCellDef>lead_time</th>
+      <td mat-cell  *matCellDef="let PoEntryCustomerTable">{{PoEntryCustomerTable.lead_time}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef=" let row; columns:displayedColumns"></tr>
+  </table>
+  <mat-paginator [length]="course?.lessonsCount" [pageSize]="3"
+                   [pageSizeOptions]="[3, 5, 10]"></mat-paginator>
+
+</div>-->

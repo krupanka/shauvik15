@@ -1,0 +1,47 @@
+<form >
+    <table >
+          
+            <thead>
+                <tr>
+              <th></th>
+               <th class="th-sm">Product Title</th>
+               <th class="th-sm">Description</th>
+               <th class="th-sm">Model</th>
+               <th class="th-sm">Brand</th>
+               <th class="th-sm">Product Code</th>
+               <th class="th-sm">Part No</th>
+               <th class="th-sm">Pack Size</th>
+               <th class="th-sm">MOQ</th>
+               <th class="th-sm">HSN Code</th>
+               <th class="th-sm">GST</th>
+               <th class="th-sm">Quantity</th>
+               <th class="th-sm" >UOM</th>
+               <th class="th-sm">Lead Time</th>
+               <th></th>
+           </tr >
+           </thead>
+           <tr  *ngFor="let data of products">
+            
+                   
+                <td></td>
+                <td>{{data.product_title}}</td>
+                <td>{{data.description}}</td>
+                <td>{{data.model}}</td>
+                <td>{{data.brand}}</td>
+                <td>{{data.product_code}}</td>
+                <td>{{data.part_number}}</td>
+                <td>{{data.pack_size}}</td>
+                <td>{{data.moq}}</td>
+                <td>{{data.hsn_code}}</td>
+                <td>{{data.gst}}</td>
+                <td>{{data.quantity}}</td>
+                <td>{{data.uom}}</td>
+                <td>{{data.lead_time}}</td>
+                <td></td>
+               </tr>
+      </table> 
+</form>
+
+
+
+
